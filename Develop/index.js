@@ -11,21 +11,54 @@ const questions = () => {
             type: "input",
             name: "title",
             message: "What is the title of your project? (Required)",
+            // check that user has answered
+            validate: (titleInput) => {
+                if (titleInput) {
+                return true;
+                } else {
+                console.log("You need to enter a project title!");
+                return false;
+                }
+            },
           },
           {
             type: "input",
             name: "description",
             message: "Provide a description of the project (Required)",
+            validate: (descriptionInput) => {
+                if (descriptionInput) {
+                return true;
+                } else {
+                console.log("You need to enter a project description!");
+                return false;
+                }
+            },
           },
           {
             type: "input",
             name: "installation",
-            message: "What are the steps required to install your project? (Required)", 
+            message: "What are the steps required to install your project? (Required)",
+            validate: (installationInput) => {
+                if (installationInput) {
+                return true;
+                } else {
+                console.log("You need to enter installation instructions for your project!");
+                return false;
+                }
+            }, 
           },
           {
             type: "input",
             name: "useage",
-            message: "Provide instructions and examples for use: (Required)",
+            message: "Provide examples on how to use your project: (Required)",
+            validate: (usageInput) => {
+                if (usageInput) {
+                return true;
+                } else {
+                console.log("You need to enter project useage instructions!");
+                return false;
+                }
+            },
           },
           {
             type: "confirm",
@@ -88,12 +121,21 @@ const questions = () => {
             type: "input",
             name: "tests",
             message: "Provide an example on how to test your project:",
+            when: ({ confirmTests }) => confirmTests,
           },
           {
             // change to access choosealicense.com?
             type: "input",
             name: "license",
             message: "Enter your open source license: (Required)",
+            validate: (licenseInput) => {
+                if (licenseInput) {
+                return true;
+                } else {
+                console.log("You need to enter a project license!");
+                return false;
+                }
+            },
           },
           {
             type: "confirm", 
