@@ -1,6 +1,11 @@
+// file system requirement 
+const fs = require("fs")
+// inquirer requirement 
+const inquirer = require("inquirer");
+
 // array of questions for user
 const questions = [
-
+    
 ];
 
 // function to write README file
