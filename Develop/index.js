@@ -1,7 +1,10 @@
+// writeFile import
+const writeFile = require("./utils/generateFile")
 // inquirer requirement 
 const inquirer = require("inquirer");
 // generateMarkdown import
 const generateMarkdown = require("./src/generateMarkdown");
+
 
 // array of questions for user
 const projectQuestions = () => { 
@@ -180,6 +183,9 @@ projectQuestions()
 // then pass answers to generateMarkdown
 .then((projectAnswers) => {
     return generateMarkdown(projectAnswers);
+})
+.then(pageMD => {
+    return writeFile(pageMD)
 })
 //
 

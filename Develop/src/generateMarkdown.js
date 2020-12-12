@@ -1,10 +1,9 @@
-// // file system requirement 
-// const fs = require("fs")
-
 // function to generate markdown for README
 function generateMarkdown(data) {
   return `
   # ${data.title}
+
+  ${generateBadges(data.badges)}
 
   ## Description
 
@@ -24,8 +23,6 @@ function generateMarkdown(data) {
 
   ${generateFeatures(data.features)}
 
-  ${generateBadges(data.badges)}
-
   ${generateContributing(data.contribute)}
 
   ${generateTests(data.tests)}
@@ -43,9 +40,9 @@ const generateTableOfContents = tableOfContentsText => {
   }
 
   return `
-    ## Table of Contents 
+  ## Table of Contents 
 
-    ${tableOfContentsText}
+  ${tableOfContentsText}
   `
 };
 
@@ -55,7 +52,9 @@ const generateCredits = creditsText => {
   }
 
   return `
-    ${creditsText}
+  ## Credits 
+  
+  ${creditsText}
   `
 };
 
@@ -65,7 +64,9 @@ const generateFeatures = featuresText => {
   }
 
   return `
-    ${featuresText}
+  ## Features
+
+  ${featuresText}
   `
 };
 
@@ -75,7 +76,7 @@ const generateBadges = badgesText => {
   }
 
   return `
-    ${badgesText}
+  ${badgesText}
   `
 };
 
@@ -85,7 +86,8 @@ const generateContributing = contributingText => {
   }
 
   return `
-    ${contributingText}
+  ## Contributions 
+  ${contributingText}
   `
 };
 
@@ -95,7 +97,9 @@ const generateTests = testsText => {
   }
 
   return `
-    ${testsText}
+  ## Tests
+
+  ${testsText}
   `
 };
 
