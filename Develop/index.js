@@ -1,10 +1,10 @@
-// file system requirement 
-const fs = require("fs")
 // inquirer requirement 
 const inquirer = require("inquirer");
+// generateMarkdown import
+const generateMarkdown = require("./src/generateMarkdown");
 
 // array of questions for user
-const questions = () => { 
+const projectQuestions = () => { 
     return inquirer
       .prompt([
           {
@@ -80,7 +80,7 @@ const questions = () => {
           },
           {
             type: "input",
-            name: "feature",
+            name: "features",
             message: "List your project's features:",
             when: ({ confirmFeatures }) => confirmFeatures,
           },
@@ -107,7 +107,7 @@ const questions = () => {
           {
             // change to access contributor covenant?
             type: "input",
-            name: "confirmContribute",
+            name: "contribute",
             message: "What are your guidelines on how to contribute to your project?",
             when: ({ confirmContributing }) => confirmContributing,
           },
@@ -164,8 +164,8 @@ const questions = () => {
 };
 
 // function to write README file
-function writeToFile(fileName, data) {
-}
+// function writeToFile(fileName, data) {
+// }
 
 // function to initialize program
 function init() {
@@ -176,11 +176,12 @@ function init() {
 init();
 
 // call questions
-questions()
-// display answers in console
-.then((answers) => {
-    console.log(answers);
+projectQuestions()
+// then pass answers to generateMarkdown
+.then((projectAnswers) => {
+    return generateMarkdown(projectAnswers);
 })
+//
 
             // type: "",
             // name: "",
