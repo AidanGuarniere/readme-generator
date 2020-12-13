@@ -71,9 +71,15 @@ const projectQuestions = () => {
           },
           {
             type: "input",
-            name: "credits",
-            message: "List your collaborators, if any, with links to their GitHub profiles:",
+            name: "creditsName",
+            message: "List your collaborators' names:",
             when: ({ confirmCredits }) => confirmCredits,
+          },
+          {
+            type: "input",
+            name: "creditsGitHub",
+            message: "Provide links to your collaborator's GitHub accounts in the order you named them:",
+            when: ({ creditsName }) => creditsName,
           },
           {
             type: "confirm",
@@ -89,17 +95,17 @@ const projectQuestions = () => {
           },
           {
             type: "confirm",
-            name: "confirmBadgesPlaceholder",
+            name: "confirmBadges",
             message: "Do you want to select a badge?",
             default: false,
           },
           {
             // change to access shields.io
-            type: "confirm",
-            name: "badgesPlaceholder",
-            message: "Choose a badge",
+            type: "input",
+            name: "badges",
+            message: "Enter your badge URL",
             default: true,
-            when: ({ confirmBadgesPlaceholder }) => confirmBadgesPlaceholder,
+            when: ({ confirmBadges}) => confirmBadges,
           },
           {
             type: "confirm",
@@ -184,6 +190,7 @@ projectQuestions()
 .then((projectAnswers) => {
     return generateMarkdown(projectAnswers);
 })
+// write MD file in dist folder
 .then(pageMD => {
     return writeFile(pageMD)
 })

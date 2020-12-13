@@ -1,42 +1,42 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
-  return `
-  # ${data.title}
+  return `# ${data.title}
 
-  ${generateBadges(data.badges)}
+${generateBadges(data.badges)}
 
-  ## Description
+## Description
 
-  ${data.descrition}
+${data.descrition}
   
-  ${generateTableOfContents(data.tableOfContents)}
+${generateTableOfContents(data.tableOfContents)}
 
-  ## Installation
+## Installation
 
-  ${data.installation}
+${data.installation}
 
-  ## Useage
+## Useage
 
-  ${data.useage}
+${data.useage}
 
-  ${generateCredits(data.credits)}
+${generateCreditsGitHub(data.creditsName, data.creditsGitHub)}
 
-  ${generateFeatures(data.features)}
+${generateFeatures(data.features)}
 
-  ${generateContributing(data.contribute)}
+${generateContributing(data.contribute)}
 
-  ${generateTests(data.tests)}
+${generateTests(data.tests)}
 
-  ## License 
-  ${data.license}
+## License 
 
-  `;
+${data.license}
+
+ `;
 }
 
 
 const generateTableOfContents = tableOfContentsText => {
   if (!tableOfContentsText) {
-    return '';
+    return ''
   }
 
   return `
@@ -46,15 +46,16 @@ const generateTableOfContents = tableOfContentsText => {
   `
 };
 
-const generateCredits = creditsText => {
-  if (!creditsText) {
+
+const generateCreditsGitHub = (creditsText, creditsGitHubText) => {
+  if (!creditsGitHubText || !creditsText) {
     return ''
   }
 
   return `
-  ## Credits 
-  
-  ${creditsText}
+## Credits 
+
+[${creditsText}](https://github.com/${creditsGitHubText}) 
   `
 };
 
@@ -64,19 +65,19 @@ const generateFeatures = featuresText => {
   }
 
   return `
-  ## Features
+## Features
 
-  ${featuresText}
+${featuresText}
   `
 };
 
 const generateBadges = badgesText => {
   if (!badgesText) {
-    return ''
+    return ``
   }
 
   return `
-  ${badgesText}
+![badge](${badgesText})
   `
 };
 
@@ -86,8 +87,9 @@ const generateContributing = contributingText => {
   }
 
   return `
-  ## Contributions 
-  ${contributingText}
+## Contributions 
+  
+${contributingText}
   `
 };
 
@@ -97,9 +99,9 @@ const generateTests = testsText => {
   }
 
   return `
-  ## Tests
+## Tests
 
-  ${testsText}
+${testsText}
   `
 };
 
