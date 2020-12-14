@@ -6,7 +6,8 @@ ${generateBadges(data.badges)}
 
 ## Description
 
-${data.descrition}
+${data.description}
+${generateImage(data.images)}
   
 ${generateTableOfContents(data.tableOfContents)}
 
@@ -33,7 +34,6 @@ ${data.license}
  `;
 }
 
-
 const generateTableOfContents = tableOfContentsText => {
   if (!tableOfContentsText) {
     return ''
@@ -45,6 +45,16 @@ const generateTableOfContents = tableOfContentsText => {
   ${tableOfContentsText}
   `
 };
+
+const generateImage = imageText => {
+  if (!imageText) {
+    return ''
+  }
+
+  return `
+  ![alt text](${imageText})
+  `
+}
 
 
 const generateCreditsGitHub = (creditsText, creditsGitHubText) => {

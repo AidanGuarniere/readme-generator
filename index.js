@@ -38,6 +38,18 @@ const projectQuestions = () => {
             },
           },
           {
+            type: "confirm",
+            name: "confirmImage",
+            message: "Would you like to add images to your description?",
+            default: false,
+          },
+          {
+            type: "input",
+            name: "images",
+            message: "Provide a link to your image:",
+            when: ({ confirmImage }) => confirmImage,
+          },
+          {
             type: "input",
             name: "installation",
             message: "What are the steps required to install your project? (Required)",
@@ -78,7 +90,7 @@ const projectQuestions = () => {
           {
             type: "input",
             name: "creditsGitHub",
-            message: "Provide links to your collaborator's GitHub accounts in the order you named them:",
+            message: "Provide your collaborator's GitHub usernames in the order you named them:",
             when: ({ creditsName }) => creditsName,
           },
           {
@@ -100,12 +112,11 @@ const projectQuestions = () => {
             default: false,
           },
           {
-            // change to access shields.io
             type: "input",
             name: "badges",
             message: "Enter your badge URL",
             default: true,
-            when: ({ confirmBadges}) => confirmBadges,
+            when: ({confirmBadges}) => confirmBadges,
           },
           {
             type: "confirm",
@@ -114,7 +125,6 @@ const projectQuestions = () => {
             default: false,
           },
           {
-            // change to access contributor covenant?
             type: "input",
             name: "contribute",
             message: "What are your guidelines on how to contribute to your project?",
@@ -133,15 +143,15 @@ const projectQuestions = () => {
             when: ({ confirmTests }) => confirmTests,
           },
           {
-            // change to access choosealicense.com?
             type: "input",
             name: "license",
-            message: "Enter your open source license: (Required)",
+            message: "Enter your open source license: (Default:MIT) (Required)",
+            default: 'MIT',
             validate: (licenseInput) => {
                 if (licenseInput) {
                 return true;
                 } else {
-                console.log("You need to enter a project license!");
+                console.log("You need to enter a project license! Browse options at choosealicense.com");
                 return false;
                 }
             },

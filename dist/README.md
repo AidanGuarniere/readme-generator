@@ -1,38 +1,56 @@
+# Project Title
 
-  # cdasfvar
 
-  
-  ![badge](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-  
-
-  ## Description
-
-  undefined
-  
+![badge](https://img.shields.io/github/languages/top/nielsenjared/badmath)
   
 
-  ## Installation
+## Description
 
-  getsgvte
+Project Description 
 
-  ## Useage
-
-  hetshgte
-
+  ![alt text](readme-generator\src\image\covid-19-tracker-screenshot-1.png)
   
-  ## Credits 
-
-  [aidan](https://github.com/AidanGuarniere) 
   
 
+  ## Table of Contents 
+
+  Installation,Usage,Credits,Features,Badges,Contributing,Tests,License
   
 
+## Installation
+
+install steps
+
+## Useage
+
+useage example
+
+
+## Credits 
+
+[Aidan Guarniere](https://github.com/AidanGuarniere) 
   
 
+
+## Features
+
+Feature 1, Feature 2
   
 
-  ## License 
 
-  MIT
-
+## Contributions 
   
+guidelines
+  
+
+
+## Tests
+
+Test
+  
+
+## License 
+
+MIT
+
+ 
